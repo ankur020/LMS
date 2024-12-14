@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { use } from "react";
 
-const page = ({ params }: { params: Promise<{ id: string }> }) => {
+const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [course, setCourse] = useState<any>({});
@@ -149,4 +149,4 @@ const page = ({ params }: { params: Promise<{ id: string }> }) => {
   );
 }
 
-export default page
+export default Page
