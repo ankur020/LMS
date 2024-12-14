@@ -44,4 +44,5 @@ Setup the .env File:
 PORT = 8080
 MONGO_URI =
 JWT_SECRET =
+CORS_ORIGIN = 
 ```

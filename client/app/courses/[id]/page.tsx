@@ -36,7 +36,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
 
   const handleEnroll = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/user/enroll/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/enroll/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
