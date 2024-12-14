@@ -58,9 +58,9 @@ const page = ({ params }: { params: Promise<{ id: string }> }) => {
     }
   }
   const getCourse = async (id: string) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8080/api/course/get/${id}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/get/${id}`);
       const data = await res.json();
       if (data.success == false) {
         setLoading(false);

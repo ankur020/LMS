@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import AdminDashboard from '../component/AdminDashboard'
-import UserDashboard from '../component/UserDashboard';
+import AdminDashboard from '../../component/AdminDashboard'
+import UserDashboard from '../../component/UserDashboard';
 
 export default function Dashboard() {
 

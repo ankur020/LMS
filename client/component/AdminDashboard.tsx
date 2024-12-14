@@ -8,6 +8,7 @@ export default function AdminDashboard() {
     const [error, setError] = useState("");
     const [allCourses, setAllCourses] = useState([]);
     const getAllCourses = async () => {
+        setLoading(true);
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/get`, {
                 method: "GET",
@@ -22,6 +23,7 @@ export default function AdminDashboard() {
                 setError(data.message)
                 return;
             }
+            setLoading(false);
             setAllCourses(data);
         } catch (error: any) {
             setError(error)
@@ -47,6 +49,7 @@ export default function AdminDashboard() {
             </div>
             <div className='flex flex-col items-center justify-center gap-10'>
                 <h1 className='text-xl font-semibold'>All Courses</h1>
+                {loading && <h1 className='text-bold text-xl'>Loading...</h1>}
                 <div className="flex flex-wrap gap-4">
                     {allCourses?.map((course: any) => (
                         <div key={course._id}>

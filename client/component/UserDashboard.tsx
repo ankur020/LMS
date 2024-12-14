@@ -5,8 +5,10 @@ import CourseCard from './CourseCard';
 export default function UserDashboard() {
   const [user, setUser] = useState<any>({});
   const [courseData, setCourseData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchCourses = async () => {
+    setLoading(true);
     try {
       // Ensure `enrolledCourses` exists and is an array before mapping
       if (user?.enrolledCourses && Array.isArray(user.enrolledCourses)) {
@@ -17,8 +19,10 @@ export default function UserDashboard() {
           })
         );
         setCourseData(courses);
+        setLoading(false);
       }
     } catch (error) {
+      setLoading(false);
       console.error('Error fetching courses:', error);
     }
   };
@@ -50,6 +54,7 @@ export default function UserDashboard() {
   return (
     <div className='flex flex-col items-center justify-center gap-10'>
       <h1 className='text-xl font-semibold'>Enrolled Courses</h1>
+      {loading && <h1 className='text-bold text-xl'>Loading...</h1>}
       <div className="flex flex-wrap gap-4">
         {
           courseData?.map((course: any) => (
