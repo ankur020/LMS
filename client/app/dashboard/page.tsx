@@ -1,6 +1,5 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Courses from '../component/Courses'
 import AdminDashboard from '../component/AdminDashboard'
 import UserDashboard from '../component/UserDashboard';
 

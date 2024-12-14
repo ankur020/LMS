@@ -5,10 +5,13 @@ import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import courseRouter from "./routes/course.route.js";
+import { globalLimiter } from "./utils/rateLimit.js";
+import morgan from "morgan";
 dotenv.config();
 
 const port = process.env.PORT || 4000;
 const app = express();
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -18,7 +21,16 @@ mongoose
     console.log(error);
   });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  })
+);
+
+app.use(morgan("dev"));
+
+app.use(globalLimiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use(cookieParser());

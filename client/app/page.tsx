@@ -9,7 +9,7 @@ export default function Home() {
   const [allCourses, setAllCourses] = useState([]);
   const getAllCourses = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/course/get", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/get`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -16,7 +16,7 @@ export default function Add() {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:8080/api/course/add", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

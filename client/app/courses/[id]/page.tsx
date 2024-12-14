@@ -14,7 +14,7 @@ const page = ({ params }: { params: Promise<{ id: string }> }) => {
 
   const handleDelete = async (id: any) => {
     try {
-      const res = await fetch(`http://localhost:8080/api/course/delete/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"

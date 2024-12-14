@@ -48,7 +48,7 @@ export default function Update({ params }: { params: Promise<{ id: string }> }) 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            const res = await fetch(`http://localhost:8080/api/course/update/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/update/${id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

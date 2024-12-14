@@ -25,7 +25,7 @@ export default function UserDashboard() {
 
   // Function to fetch course data (replace with actual API call)
   const fetchCourseData = async (courseId: any) => {
-    const response = await fetch(`http://localhost:8080/api/course/get/${courseId}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/course/get/${courseId}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch course data for ID: ${courseId}`);
     }
